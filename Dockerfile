@@ -1,4 +1,4 @@
-FROM ghcr.io/douglasdgoulart/linux:base
+FROM ghcr.io/douglasdgoulart/linux:master
 
 ARG BRANCH=master
 
