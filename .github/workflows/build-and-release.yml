@@ -13,6 +13,15 @@ jobs:
       packages: read
 
     steps:
+      - name: Get branch name
+        id: branch_name
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "branch=$(git branch -r --contains ${GITHUB_REF} | grep -v HEAD | head -n1 | sed 's/.*origin\///')" >> $GITHUB_OUTPUT
+          else
+            echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -33,6 +42,9 @@ jobs:
           file: Dockerfile
           load: true
           tags: linux-builder:latest
+          build-args: |
+            BRANCH=${{ steps.branch_name.outputs.branch }}
+            REPO_URL=https://github.com/${{ github.repository }}.git
 
       - name: Extract artifacts
         run: |
