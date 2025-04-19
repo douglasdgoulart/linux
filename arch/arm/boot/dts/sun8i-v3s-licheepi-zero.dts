@@ -118,6 +118,8 @@
 
 &spi0 {
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&spi0_pins>;
 
 	spi-nand@0 {
 		compatible = "spi-nand";
@@ -134,13 +136,8 @@
 			};
 			
 			partition@100000 {
-				label = "boot";
-				reg = <0x100000 0x500000>;
-			};
-			
-			partition@600000 {
-				label = "rootfs";
-				reg = <0x600000 0xA00000>;
+				label = "rootubi";
+				reg = <0x100000 0>;
 			};
 		};
 	};
