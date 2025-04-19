@@ -1021,7 +1021,7 @@ CONFIG_MTD_M25P80=y
 
 # CONFIG_MTD_ONENAND is not set
 # CONFIG_MTD_RAW_NAND is not set
-# CONFIG_MTD_SPI_NAND is not set
+CONFIG_MTD_SPI_NAND=y
 
 #
 # LPDDR & LPDDR2 PCM memory drivers
@@ -3199,9 +3199,6 @@ CONFIG_LEDS_GPIO=y
 #
 # LED driver for blink(1) USB RGB LED is under Special HID drivers (HID_THINGM)
 #
-# CONFIG_LEDS_BLINKM is not set
-# CONFIG_LEDS_SYSCON is not set
-# CONFIG_LEDS_MLXREG is not set
 # CONFIG_LEDS_USER is not set
 # CONFIG_LEDS_SPI_BYTE is not set
 # CONFIG_LEDS_TI_LMU_COMMON is not set
