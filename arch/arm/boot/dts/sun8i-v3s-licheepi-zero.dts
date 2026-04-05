@@ -62,12 +62,12 @@
 		blue_led {
 			label = "licheepi:blue:usr";
 			gpios = <&pio 6 1 GPIO_ACTIVE_LOW>; /* PG1 */
+			linux,default-trigger = "activity";
 		};
 
 		green_led {
 			label = "licheepi:green:usr";
 			gpios = <&pio 6 0 GPIO_ACTIVE_LOW>; /* PG0 */
-			default-state = "on";
 		};
 
 		red_led {
@@ -132,12 +132,12 @@
 			
 			partition@0 {
 				label = "u-boot";
-				reg = <0x0 0x100000>;
+				reg = <0x0 0x200000>;
 			};
-			
-			partition@100000 {
+
+			partition@200000 {
 				label = "rootubi";
-				reg = <0x100000 0>;
+				reg = <0x200000 0>;
 			};
 		};
 	};
